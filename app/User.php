@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Cinema;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @return array
+     */
+    public function setPasswordAttribute( $valor )
+    {
+        if( !empty( $valor ) ){
+            $this->attributes[ 'password' ] = \Hash::make( $valor );
+        }
+    }
 }

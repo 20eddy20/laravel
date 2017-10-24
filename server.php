@@ -1,4 +1,8 @@
 <?php
+/*
+ * /etc/init.d/mysql stop
+ * /opt/lampp/lampp start
+*/
 
 /**
  * Laravel - A PHP Framework For Web Artisans

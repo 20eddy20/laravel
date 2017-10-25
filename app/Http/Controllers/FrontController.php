@@ -9,13 +9,23 @@ use Cinema\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
-    /*public function __construct()
-    {
+    public function __construct(){
+        /*
+        |------------------------------------------------------------------------------------
+        | Middleware
+        |------------------------------------------------------------------------------------
+        |
+        | Cuando se utiliza el middleware hay que añadir la clase (Authenticate)
+        | en el fichero Kernel dentro del array
+        | protected $routeMiddleware['auth' => \Cinema\Http\Middleware\Authenticate::class,]
+        |
+        | En este constructor solo se ejecutará el metodo admin.
+        |
+        */
         $this->middleware('auth',['only' => 'admin']);
-    }*/
+    }
 
-    public function index()
-   {
+    public function index(){
         return view('index');
    }
 

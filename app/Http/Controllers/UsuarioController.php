@@ -14,10 +14,21 @@ use Illuminate\Routing\Route;
 class UsuarioController extends Controller
 {
 
-    /*public function __construct()
-    {
+    public function __construct(){
+        /*
+        |------------------------------------------------------------------------------------
+        | Middleware
+        |------------------------------------------------------------------------------------
+        |
+        | Cuando se utiliza el middleware hay que añadir la clase (Authenticate)
+        | en el fichero Kernel dentro del array
+        | protected $routeMiddleware['auth' => \Cinema\Http\Middleware\Authenticate::class,]
+        |
+        | @todo En este constructor se ejecutará tdo los metodos del controlador.
+        |
+        */
         $this->middleware('auth');
-    }*/
+    }
 
     /**
      * Display a listing of the resource.
@@ -38,12 +49,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        /*
-
-         "/storage/ssd1/458/3320458/laravelpublic_html/something"
-        */
         return view('usuario.create');
-        
     }
 
     /**

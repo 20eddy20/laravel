@@ -19,8 +19,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- header-section-starts -->
 <div class="full">
-
-    <h2>estefania</h2>
     <div class="menu">
         <ul>
             <li><a class="active" href="index.html"><i class="home"></i></a></li>

@@ -11,9 +11,8 @@
             <div class="clearfix"></div>
         </div>
         <div class="header-info">
-            <h1>Login</h1>
+            <h1>BIG HERO 6</h1>
             {!!Form::open(['route'=>'log.store', 'method'=>'POST'])!!}
-            {!!Form::open(array('route' => 'log.store', 'method' => 'POST'))!!}
             <div class="form-group">
                 {!!Form::label('correo','Correo:')!!}
                 {!!Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Ingresa tu correo'])!!}
@@ -22,13 +21,9 @@
                 {!!Form::label('contrasena','Contraseña:')!!}
                 {!!Form::password('password',['class'=>'form-control', 'placeholder'=>'Ingresa tu contraseña'])!!}
             </div>
-            {!!Form::submit('Entrar',['class'=>'btn btn-primary'])!!}
+            {!!Form::submit('Iniciar',['class'=>'btn btn-primary'])!!}
             {!!Form::close()!!}
-
-            <a class="video" href="#"><i class="video1"></i>WATCH TRAILER</a>
-            <a class="book" href="#"><i class="book1"></i>BOOK TICKET</a>
         </div>
-
     </div>
     <div class="review-slider">
         <ul id="flexiselDemo1">

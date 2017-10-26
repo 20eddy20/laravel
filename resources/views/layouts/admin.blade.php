@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title></title>
 
     {!!Html::style('css/bootstrap.min.css') !!}
@@ -103,6 +104,8 @@
     {!!Html::script('js/bootstrap.min.js') !!}
     {!!Html::script('js/metisMenu.min.js') !!}
     {!!Html::script('js/sb-admin-2.js') !!}
+    {!!Html::script('js/script.js') !!}
+
 
 </body>
 

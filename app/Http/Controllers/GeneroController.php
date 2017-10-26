@@ -2,6 +2,8 @@
 
 namespace Cinema\Http\Controllers;
 
+use Cinema\genre;
+use Cinema\Http\Requests\GeneroCreateRequest;
 use Illuminate\Http\Request;
 
 class GeneroController extends Controller
@@ -34,7 +36,15 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){
+            $data = $request->all();
+            if (!empty($data['genre'])){
+                genre::create($data);
+                return response()->json(["true"]);
+            } else {
+                return response()->json(["false"]);
+            }
+        }
     }
 
     /**

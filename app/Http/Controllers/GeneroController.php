@@ -13,9 +13,18 @@ class GeneroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function listing(){
+        $genres = genre::all();
+        return response()->json($genres->toArray());
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        //
+        return view("genero.index");
     }
 
     /**
@@ -36,6 +45,14 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
+        /*
+         |--------------------------------------------
+         | Obtiene el valor del input que manda ajax (script.js)
+         |--------------------------------------------
+         | Guarda ese valor en la tabla generos
+         | @todo retorna true o false
+         |
+         */
         if($request->ajax()){
             $data = $request->all();
             if (!empty($data['genre'])){

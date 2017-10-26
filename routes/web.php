@@ -12,5 +12,6 @@ Route::get('logout', 'LogController@logout');
 
 //@todo rutas para generos
 Route::resource('genero','GeneroController');
+Route::get('generos', 'GeneroController@listing');
 
 

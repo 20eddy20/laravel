@@ -6,7 +6,7 @@
                 <strong>Genero Agregado Correctamente.</strong>
             </div>
             <div id="msj-error" class="alert alert-danger alert-dismissible" role="alert" style="display:none">
-                <strong>Campo vacio. Porfavor ingresar un genero</strong>
+                <strong id="msj"></strong>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token"/>
             @include('genero.form.genero')

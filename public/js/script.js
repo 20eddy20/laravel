@@ -35,8 +35,9 @@ $("#registro").click(function () {
 
             }
         },
-        error:function(){
-            console.log('error');
+        error:function(msj){
+            $("#msj").html(msj.responseJSON.errors.genre);
+            $("#msj-error").fadeIn();
         }
     });
 })

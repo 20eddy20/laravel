@@ -3,11 +3,22 @@
 namespace Cinema\Http\Controllers;
 
 use Cinema\genre;
+use Cinema\Http\Requests\GenreRequest;
 use Cinema\Http\Requests\GeneroCreateRequest;
 use Illuminate\Http\Request;
 
 class GeneroController extends Controller
 {
+   /* public function __construct() {
+        $this->beforeFilter('@find',['only'=>['edit','update','destroy']]);
+    }
+
+    public function find(Route $route){
+        $this->genre = genre::find($route->getParameter('genero'));
+    }
+   */
+
+
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +54,7 @@ class GeneroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GenreRequest $request)
     {
         /*
          |--------------------------------------------
@@ -110,6 +121,7 @@ class GeneroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        genre::destroy($id);
+        return response()->json(["mensaje" => "Borrado"]);
     }
 }

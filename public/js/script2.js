@@ -24,8 +24,8 @@ function carga(){
                 "<tr>" +
                     "<td>"+value.genre+"</td>" +
                     "<td>" +
-                        "<button value="+value.id+" OnClick='Mostrar(this);' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Editar</button>" +
-                        "<button class='btn btn-danger' value="+value.id+" OnClick='Eliminar(this);'>Eliminar</button>" +
+                        "<button class='btn btn-primary' value="+value.id+" OnClick='Mostrar(this);' data-toggle='modal' data-target='#myModal'>Editar</button>" +
+                        "<button class='btn btn-danger' value="+value.id+" OnClick='Eliminar(this);' >Eliminar</button>" +
                     "</td>" +
                 "</tr>");
         });
@@ -44,17 +44,39 @@ function carga(){
  */
 function Mostrar(btn){
     var route = "http://localhost:8000/genero/"+btn.value+"/edit";
-
     $.get(route, function(res){
         $("#genre").val(res.genre);
         $("#id").val(res.id);
     });
 }
 
+
+function Eliminar(btn) {
+    var id = btn.value;
+    var route = "http://localhost:8000/genero/"+id;
+    
+    var token = $("#token").val();
+    $.ajax({
+        url: route,
+        headers: {'X-CSRF-TOKEN': token},
+        type: 'DELETE',
+        dataType: 'json',
+        success: function(){
+            carga();
+            $("#msj-success-delete").fadeIn();
+        },
+        error:function(){
+            console.log('error');
+        }
+    });
+}
+
+
+
 /*
- |------------------------------------------------------------------------------------
+ |----------------------------------------------------------------
  | Actualiza el nombre del genero
- |------------------------------------------------------------------------------------
+ |----------------------------------------------------------------
  | Acualiza el campo input donde contiene el nombre del genero.
  |
  */
@@ -63,6 +85,7 @@ $("#actualizar").click(function(){
     var dato = $("#genre").val();
     var route = "http://localhost:8000/genero/"+value+"";
     var token = $("#token").val();
+    console.log("update: "+ token);
 
     $.ajax({
         url: route,
@@ -74,6 +97,10 @@ $("#actualizar").click(function(){
             carga();
             $("#myModal").modal('toggle');
             $("#msj-success").fadeIn();
+        },
+        error:function(){
+            console.log('error');
         }
     });
 });
+

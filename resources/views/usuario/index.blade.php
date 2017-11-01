@@ -11,24 +11,31 @@
     @endif
 
     @section('content')
-        <table class="table">
-            <thead>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Operaciones</th>
-            @foreach($users as $user)
-                <tbody>
+        <div class="users">
+            <table class="table">
+                <thead>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Operaciones</th>
+                @foreach($users as $user)
+                    <tbody>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                      {!! link_to_route('usuario.edit', $title = 'Editar', $parameters = $user->id, $attributes = ['class'=>'btn btn-primary']) !!}
+                        {!! link_to_route('usuario.edit', $title = 'Editar', $parameters = $user->id, $attributes = ['class'=>'btn btn-primary']) !!}
                     </td>
-                </tbody>
-                </thead>
-            @endforeach
-        </table>
-        {!! $users->render() !!}
+                    </tbody>
+                    </thead>
+                @endforeach
+            </table>
+            {!! $users->render() !!}
+        </div>
     @stop
+
+    @section('scripts')
+        {!! Html::script('js/script3.js') !!}}
+    @endsection
+
 
 
 
